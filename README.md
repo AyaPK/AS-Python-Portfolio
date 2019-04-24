@@ -2,7 +2,7 @@
 A portfolio compilation of Python projects
 
 - Bingo Game.py
-  A simple bingo game with features based on it's Javascript counterpart
+  A simple bingo game with features based on it's Javascript counterpart /n
  Features:
   - random bingo card generation
   - automatic checks for matches and bingos
