@@ -1,4 +1,4 @@
-# SS-Python-Portfolio
+# Aya Stead
 A portfolio compilation of Python projects
 
 - Bingo Game.py<br/>
