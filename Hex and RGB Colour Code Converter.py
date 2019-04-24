@@ -1,7 +1,15 @@
+import random
 from tkinter import *
+
+defaultcolour = "#"
+for x in range(0,6):
+    rand = random.choice("ABCDEF0123456789")
+    defaultcolour = (defaultcolour + rand)
 
 root = Tk()
 root.title("Aya's colour code converter")
+
+
 
 
 leftside = Frame(root)
@@ -21,7 +29,7 @@ hext = Label(hexspace, text="HEX code")
 hext.grid(row=1, column=1)
 hexentry = Entry(hexspace)
 hexentry.grid(row=1, column=2)
-hexentry.insert(END, "#F0F0ED")
+hexentry.insert(END, defaultcolour)
 button = Button(buttonspace, text="convert hex to RGB")
 hexcopy = Button(buttonspace, text="Copy HEX code")
 button.grid(column=1, row=1)
@@ -35,18 +43,20 @@ blue.grid(row=3, column=1)
 r1 = Entry(rgbspace, bg="#ff7b60")
 g1 = Entry(rgbspace, bg="#60ff67")
 b1 = Entry(rgbspace, bg="#6a60ff")
-r1.insert(END, "240")
-g1.insert(END, "240")
-b1.insert(END, "237")
-b1.grid(row=1, column=2)
+r1.insert(END, int(defaultcolour[1:-4], 16))
+g1.insert(END, int(defaultcolour[3:-2], 16))
+b1.insert(END, int(defaultcolour[5:], 16))
+b1.grid(row=3, column=2)
 g1.grid(row=2, column=2)
-r1.grid(row=3, column=2)
+r1.grid(row=1, column=2)
 button2 = Button(buttonspace, text="convert RGB to hex")
 button2.grid(row=2, column=1)
 rgbcopy = Button(buttonspace, text="Copy RGB code")
 rgbcopy.grid(row=2, column=2)
-output = Text(rightside, height=8, width=15)
-output.pack(side=RIGHT)
+output = Text(rightside, height=8, width=15, bg=defaultcolour)
+output.pack(side=TOP)
+randomcolour = Button(rightside, text="Generate random colour")
+randomcolour.pack(side=BOTTOM)
 
 
 def hextorgb():
@@ -96,6 +106,22 @@ def copyrgb():
     root.clipboard_append(str(r1.get())+", "+str(g1.get())+", "+str(b1.get()))
     root.update()
 
+def rando():
+    newcolor = "#"
+    for x in range(0,6):
+        randcol = random.choice("ABCDEF0123456789")
+        newcolor = (newcolor + randcol)
+    hexentry.delete(0, END)
+    hexentry.insert(END, newcolor)
+    r1.delete(0, END)
+    r1.insert(END, int(newcolor[1:-4], 16))
+    g1.delete(0, END)
+    g1.insert(END, int(newcolor[3:-2], 16))
+    b1.delete(0, END)
+    b1.insert(END, int(newcolor[5:], 16))
+    output.config(bg=newcolor)
+
+randomcolour.config(command=rando)
 
 rgbcopy.config(command=copyrgb)
 button2.config(command=rgbtohex)
