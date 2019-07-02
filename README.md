@@ -8,6 +8,9 @@ A portfolio compilation of Python projects
  
 - Farenheit and Celcius Converter.py<br/>
   A quick excersize in creating a functional Tkinter GUI<br/><br/>
+  
+- Calculator.py<br/>
+  An experiment in utilising the Tkinter UI to create a basic functioning calculator<br/><br/>
  
 - FizzBuzz Generator.py<br/>
   My response to the FizzBuzz challenge
