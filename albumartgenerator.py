@@ -3,7 +3,7 @@ from urllib.request import urlopen
 import random
 import string
 
-enWords = open("C:\\Users\\Administrator\\Documents\\Words.txt", "r")
+enWords = open("C:\\Users\\Sherb ~ Mothership\\Documents\\Words.txt", "r")
 wordList = enWords.readlines()
 
 
@@ -37,7 +37,7 @@ def makeFullAlbumName():
 albumName = makeFullAlbumName()
 
 
-fontpath = "C:\\Users\\Administrator\\PycharmProjects\\PyGameTest\\venv\\Lib\\site-packages\\pygame\\tests\\fixtures\\fonts\\test_fixed.otf"
+fontpath = "C:\\Users\\Sherb ~ Mothership\\Documents\\test_fixed.otf"
 titlefont = ImageFont.truetype(fontpath, 40)
 namefont = ImageFont.truetype(fontpath, 80)
 W, H = (800,800)
@@ -49,7 +49,10 @@ output = ImageDraw.Draw(frame)
 arw, arh = output.textsize(artistName, font=namefont)
 alw, alh = output.textsize(albumName, font=titlefont)
 titleheight = random.randint(2,7)*100
+output.text((((W-arw)/2)-1,49), artistName, fill=(0,0,0), font=namefont)
 output.text(((W-arw)/2,50), artistName, fill=(255,255,255), font=namefont)
+output.text((((W-alw)/2)+1, titleheight+1), albumName, fill=(0,0,0), font=titlefont)
 output.text(((W-alw)/2, titleheight), albumName, fill=(255,255,255), font=titlefont)
+
 
 frame.show()
