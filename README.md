@@ -1,5 +1,5 @@
 # Aya Stead
-A portfolio compilation of Python projects
+A portfolio compilation of Python projects mostly made as a study of GUI design in Tkinter
 
 - Bingo Game.py<br/>
  A simple bingo game with features based on it's Javascript counterpart
